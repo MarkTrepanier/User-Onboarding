@@ -87,13 +87,8 @@ function App() {
         submit={formSubmit}
       />
 
-      {users.length <= 0 ? <></> :
-        users.map((user, idx)=>{
-          return(
-            <h1 key = {idx}>{JSON.stringify(users)}</h1>
-          )
-        })
-      }
+      
+      {users.length <= 0 ? <></> : <p>{JSON.stringify(users)}</p>}
       
     </div>
   );
