@@ -7,7 +7,7 @@
     password: yup.string()
     .required('must include password!')
     .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,//regex ishard
         "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
       ),
     tos: yup.boolean().oneOf([true],'must be cool'),

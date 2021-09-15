@@ -5,8 +5,15 @@ export default function Form(props){
         values,
         change,
         disabled,
-        errors
+        errors,
+        submit
+
     } = props;
+
+    const onSubmit = evt =>{
+        evt.preventDefault();
+        submit();
+    }
 
     const onChange = evt => {
         const {name, value, checked, type} = evt.target
@@ -15,7 +22,7 @@ export default function Form(props){
     }
 
     return(
-        <form>
+        <form onSubmit={onSubmit}>
             <div>
                 <label>{'Name '}
                     <input type='text' name='name' value= {values.name}  onChange={onChange}/>
