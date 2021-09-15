@@ -4,6 +4,7 @@ export default function Form(props){
     const {
         values,
         change,
+        disabled,
     } = props;
 
     const onChange = evt => {
@@ -16,15 +17,18 @@ export default function Form(props){
         <form>
             <div>
                 <label>{'Name '}
-                    <input type='text' name='name' value= {values.name} checked='' onChange={onChange}/>
+                    <input type='text' name='name' value= {values.name}  onChange={onChange}/>
                 </label>
 
                 <label>{'Email '}
-                    <input type='text' name='email' value={values.email} checked='' onChange={onChange}/>
+                    <input type='text' name='email' value={values.email}  onChange={onChange}/>
                 </label>
 
                 <label>{'Password '}
-                    <input type='password' name='password' value={values.password} checked='' onChange={onChange}/>
+                    <input type='password' name='password' value={values.password}  onChange={onChange}/>
+                </label>
+                <label>{'Password Confirmation '}
+                    <input type='password' name='password confirmation' value={values.passwordConfirmation}  onChange={onChange}/>
                 </label>
 
                 <label>{'Terms of Service '}
@@ -32,7 +36,7 @@ export default function Form(props){
                 </label>
 
                 <div className='submitButton'>
-                <button disabled={true}>submit</button>
+                <button disabled={disabled}>submit</button>
                 </div>
             </div>
         </form>
