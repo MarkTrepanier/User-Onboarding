@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Form from './Form';
 import React, {useEffect, useState} from 'react';
@@ -34,10 +33,9 @@ function App() {
   }
 
   const postUsers = ( newUser =>{
-    axios.post(`https://reqres.in/api/users`)
+    axios.post(`https://reqres.in/api/users`, newUser)
     .then(res=>{
-      console.log(res);
-      //setUsers
+      setUsers(users.concat(res.data));
       //resetFormValues
     })
     .catch(er => {
@@ -67,11 +65,12 @@ function App() {
       password:formData.password,
       tos:!!formData.name,
     }
+    postUsers(newUser);
   }
 
   useEffect(()=>{
     getUsers();
-  })
+  },[])
 
   useEffect(()=>{
     schema.isValid(formData)
@@ -87,6 +86,15 @@ function App() {
         errors= {errors}
         submit={formSubmit}
       />
+
+      {users.length <= 0 ? <></> :
+        users.map((user, idx)=>{
+          return(
+            <h1 key = {idx}>{JSON.stringify(users)}</h1>
+          )
+        })
+      }
+      
     </div>
   );
 }
