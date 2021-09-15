@@ -28,9 +28,6 @@ export default function Form(props){
                 <label>{'Password '}
                     <input type='password' name='password' value={values.password}  onChange={onChange}/>
                 </label>
-                <label>{'Password Confirmation '}
-                    <input type='password' name='passwordConfirmation' value={values.passwordConfirmation}  onChange={onChange}/>
-                </label>
 
                 <label>{'Terms of Service '}
                     <input type='checkbox' name='tos' checked={values.tos} onChange={onChange}/>
@@ -41,7 +38,7 @@ export default function Form(props){
                 </div>
             </div>
 
-            <div>
+            <div style={{color: 'red'}}>
                 <div>{errors.name}</div>
                 <div>{errors.email}</div>
                 <div>{errors.password}</div>

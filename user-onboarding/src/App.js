@@ -9,7 +9,7 @@ const initialFormData = {
   name:'',
   email:'',
   password:'',
-  passwordConfirmation:'',
+  passwordConfirmation:null,
   tos: false,
 }
 const initialFormErrors = {
@@ -30,8 +30,8 @@ function App() {
   const validate = (name, value) => {
     yup.reach(schema, name)
     .validate(value)
-    .then(()=> setErrors({...FormData, [name]:''}))
-    .catch((err)=> setErrors({...FormData, [name]:err.errors[0]}))
+    .then(()=> setErrors({...errors, [name]:''}))
+    .catch((err)=> setErrors({...errors, [name]:err.errors[0]}))
   }
 
   const inputChange= (name, value)=>{
