@@ -45,13 +45,14 @@ export default function Form(props){
                 </div>
             </div>
 
-            <div style={{color: 'red'}}>
+            {errors.length <= 0 ? <></> :
+                <div className='errors'style={{color: 'red'}}>
                 <div>{errors.name}</div>
                 <div>{errors.email}</div>
                 <div>{errors.password}</div>
                 <div>{errors.passwordConfirmation}</div>
                 <div>{errors.tos}</div>
-            </div>
+            </div>}
         </form>
     );
 }
