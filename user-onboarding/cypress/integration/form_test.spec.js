@@ -71,14 +71,5 @@ describe('Submit functionality',()=>{
         nameInput().clear().should('have.value','');
         errorDiv().should('be.visible');
     })
-
-    describe('Header Text', function() {
-        it('Checks if header text exists', function () {
-       nameInput().type('ham')
-        nameInput().contains('ham');
-        })
-    })
 })
-
-
 })//DANGER!, DANGER!, HIGH VOLTAGE!
